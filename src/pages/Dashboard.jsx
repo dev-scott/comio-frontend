@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { analyticsAPI } from '../services/api'
 import {
@@ -127,12 +128,12 @@ export default function Dashboard() {
           </p>
         </div>
         <div className="flex gap-2">
-          <a href="/ai" className="btn-accent text-sm">
+          <Link to="/ai" className="btn-accent text-sm">
             <Zap size={15} /> Générer du contenu
-          </a>
-          <a href="/campaigns" className="btn-secondary text-sm">
+          </Link>
+          <Link to="/campaigns" className="btn-secondary text-sm">
             <Send size={15} /> Nouvelle campagne
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -262,12 +263,12 @@ export default function Dashboard() {
           { href: '/clients',   icon: Users,            label: 'Importer des clients', desc: 'CSV / manuel', color: 'text-blue-400' },
           { href: '/analytics', icon: TrendingUp,       label: 'Voir les analytics', desc: 'Rapports détaillés', color: 'text-purple-400' },
         ].map(({ href, icon: Icon, label, desc, color }) => (
-          <a key={href} href={href}
+          <Link key={href} to={href}
              className="card-sm hover:border-surface-hover hover:bg-surface-hover transition-all duration-200 cursor-pointer group">
             <Icon size={22} className={`${color} mb-3 group-hover:scale-110 transition-transform`} />
             <p className="text-sm font-semibold text-white">{label}</p>
             <p className="text-xs text-gray-500 mt-0.5">{desc}</p>
-          </a>
+          </Link>
         ))}
       </div>
     </div>
